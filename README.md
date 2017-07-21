@@ -9,7 +9,7 @@ En este documento se recogen también las instrucciones relativas a la instalaci
 Las explicaciones durante las sesiones del curso alternarán el uso de transparencias y ejemplos de programación "en vivo". Las transparencias estarán disponibles en los siguientes enlaces al comienzo de cada sesión en los siguientes enlaces:
 
 * Presentación
-* Sesión 1. [Introduction to Scala](module1-typeclasses/TypeClasses.pdf)
+* Sesión 1. [Introduction to Scala](session1/IntroScala.pdf)
 * Sesión 2. Higher-order functions & ADTs
 * Sesión 3. Type classes
 * Sesión 4. Functional architectures
@@ -31,8 +31,8 @@ Prerrequisitos: es necesario que tengáis instalado Java 8 en vuestra máquina.
 Una vez clonado localmente el repositorio, mediante el siguiente comando se descargarán todas las dependencias necesarias para compilar los programas del curso (las librerías scalaz, cats, etc., y el propio compilador de Scala):
 
 ```bash
-$ cd funcourseinspark-everis
-$ ./sbt ~update
+$ cd funcourseinspark-everis/session1
+$ ../sbt update
 ```
 
 ## Comunicación
@@ -45,7 +45,7 @@ El correo electrónico del coordinador del curso es: [juanmanuel.serrano@hablapp
 
 Para resolver dudas y fomentar la colaboración entre los alumnos, se dispone del siguiente chat moderado por el equipo de Habla Computing:
 
-https://gitter.im/hablapps/everis-spark-course
+https://gitter.im/hablapps/everis_spark_course
 
 #### Twitter
 
