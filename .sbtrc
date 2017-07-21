@@ -1,0 +1,1 @@
+alias test-typeclasses-exercise1=;testOnly org.hablapps.fpinscala.typeclasses.test.Exercise1Spec
