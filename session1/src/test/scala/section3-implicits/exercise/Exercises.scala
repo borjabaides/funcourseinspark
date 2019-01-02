@@ -28,26 +28,42 @@ class Exercises extends FunSpec with Matchers {
     // 1 m/s  => 3.6      km/h
     // 1 mph  => 1.609344 km/h
     // 1 knot => 1.852    km/h
-    private def toKPH(q: Double)(implicit U: MeasureUnit): Double = ???
+    private def toKPH(q: Double)(implicit U: MeasureUnit): Double = {
+       U match {
+         case KilometersPerHour => q
+         case MetersPerSecond => q * 3.6
+         case MilesPerHour => q * 1.609344 
+         case Knots => q * 1.852
+       }
+    }
 
     // PART II
     //
     // Implement the opposite, a private method `fromKPH` that gets a
     // quantity and an implicit measure, and does the conversion from km/h
     // to the implicit measure
-    private def fromKPH(q: Double)(implicit U: MeasureUnit): Double = ???
-
+    private def fromKPH(q: Double)(implicit U: MeasureUnit): Double = 
+    {  U match {
+         case KilometersPerHour => q
+         case MetersPerSecond => q / 3.6
+         case MilesPerHour => q / 1.609344 
+         case Knots => q / 1.852
+       }
+    }
     // PART III
     //
     // Implement a method `speedUp` that given an increment and
     // an implicit measure, increments the car's speed accordingly
-    def speedUp(inc: Double)(implicit U: MeasureUnit): Car = ???
+    def speedUp(inc: Double)(implicit U: MeasureUnit): Car = this.copy(_speed = _speed + toKPH(inc))
+    //si solo hay un argumento se puede poner esto o copiar con todos los demas 
+      //new Car(this._speed + toKPH(inc))
 
     // PART IV
     //
     // Implement a method `speed` that returns the current speed
     // (_speed) converting to the implicit measure received as argument
-    def speed(implicit U: MeasureUnit): Double = ???
+    def speed(implicit U: MeasureUnit): Double =  fromKPH(this._speed)
+    
   }
 
   // Tests are ignored, once you've finished the correspondent PARTs,
@@ -60,12 +76,12 @@ class Exercises extends FunSpec with Matchers {
     describe("Using Km/h as default") {
       implicit val defaultMeasurementUnits = KilometersPerHour
 
-      ignore("should speed up w/o changing measures") {
+      it("should speed up w/o changing measures") {
         car100.speedUp(10)._speed shouldBe 110
         car100.speedUp(10).speed shouldBe 110
       }
 
-      ignore("should increment 3.6 times when using m/s explicitly") {
+      it("should increment 3.6 times when using m/s explicitly") {
         car100.speedUp(10)(MetersPerSecond).speed shouldBe 136
       }
     }
@@ -73,12 +89,12 @@ class Exercises extends FunSpec with Matchers {
     describe("Using m/s as default") {
       implicit val defaultMeasurementUnits = MetersPerSecond
 
-      ignore("should speed up changing measures") {
+      it("should speed up changing measures") {
         car100.speedUp(10)._speed shouldBe 136
         car100.speedUp(10).speed shouldBe (136 / 3.6)
       }
 
-      ignore("should decrement 3.6 times when using km/h explicitly") {
+      it("should decrement 3.6 times when using km/h explicitly") {
         car100.speedUp(10)(KilometersPerHour)._speed shouldBe 110
         car100.speedUp(10)(KilometersPerHour).speed shouldBe (110 / 3.6)
       }
@@ -95,12 +111,17 @@ class Exercises extends FunSpec with Matchers {
   //
   // Create an implicit class to achieve it
 
-  // ???
-
+  // ??
+  implicit class stopC (C :Car) { 
+   //al haber un solo campo podria ser... def stop : Car = new Car(0)
+   // por si tuviera mas de un campo:
+    def stop : Car = C.copy(_speed=0)
+  }  
+  //si solo hay un argumento se puede poner esto o copiar con todos los demas 
   describe("The stop method") {
-    ignore("should set the speed to 0") {
+    it("should set the speed to 0") {
       // Uncomment next line once the implicit class is created
-      // car100.stop._speed shouldBe 0
+      car100.stop._speed shouldBe 0
     }
   }
 

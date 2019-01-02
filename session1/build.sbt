@@ -15,3 +15,5 @@ libraryDependencies ++= Seq(
 )
 
 initialCommands in console := "import org.hablapps.fpinscala.intro._"
+
+//test in assembly := {}
