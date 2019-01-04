@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/session1/src/test/scala/scala.iml" filepath="$PROJECT_DIR$/session1/src/test/scala/scala.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session1/src/test/scala/section1-oo/section1-oo.iml" filepath="$PROJECT_DIR$/session1/src/test/scala/section1-oo/section1-oo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session1/src/test/scala/section2-generics/section2-generics.iml" filepath="$PROJECT_DIR$/session1/src/test/scala/section2-generics/section2-generics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session1/src/test/scala/section3-implicits/section3-implicits.iml" filepath="$PROJECT_DIR$/session1/src/test/scala/section3-implicits/section3-implicits.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session1/src/test/scala/section5-scalatest/section5-scalatest.iml" filepath="$PROJECT_DIR$/session1/src/test/scala/section5-scalatest/section5-scalatest.iml" />
+    </modules>
+  </component>
+</project>
